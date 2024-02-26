@@ -24,7 +24,7 @@ input.addEventListener('click', function() {
             grandchildBox.classList.add('grandchildBox');
             childBox.appendChild(grandchildBox);
 
-            grandchildBox.addEventListener('click', )
+            grandchildBox.addEventListener('mousemove', () => grandchildBox.classList.add('clicked'))
         }
     }
 
