@@ -2,7 +2,14 @@ const input = document.querySelector('input');
 const body = document.querySelector('body');
 const bigBox = document.querySelector('.bigBox');
 
-input.addEventListener('click', function() {
+input.addEventListener('click', boxCreate);
+const clear = document.querySelector('.clear')
+clear.addEventListener('click', boxCreate)
+
+let sliderValue = document.querySelector(".sliderValue");
+boxCreate();
+
+function boxCreate() {
 
     while(bigBox.firstChild)
     {
@@ -28,7 +35,4 @@ input.addEventListener('click', function() {
         }
     }
 
-});
-
-let sliderValue = document.querySelector(".sliderValue");
-
+}

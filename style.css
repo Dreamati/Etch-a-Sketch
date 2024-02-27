@@ -22,9 +22,25 @@ h1 {
     display: flex;
 }
 .grandchildBox {
-    border: 2px solid;
+    /* border: 2px solid rgb(65, 65, 65);  */
     flex: 1;
 }
 .clicked {
-    background-color: black;
+    background-color: rgb(80, 73, 73);
+}
+.inputParent {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+}
+.clear {
+    height: 50px;
+    width: 80px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+}
+.sliderValue {
+    text-align: center;
 }
