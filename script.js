@@ -2,6 +2,10 @@ const input = document.querySelector('input');
 const body = document.querySelector('body');
 const bigBox = document.querySelector('.bigBox');
 let isRainbow = false;
+let startDraw = false;
+
+bigBox.addEventListener('mousedown', () => startDraw = true);
+body.addEventListener('mouseup', () => startDraw = false);
 
 input.addEventListener('click', boxCreate);
 const clear = document.querySelector('.clear')
@@ -19,7 +23,7 @@ function boxCreate() {
     }
 
     let boxNumber = Math.floor(input.value*64/100);
-    sliderValue.textContent = boxNumber;
+    sliderValue.textContent = `${boxNumber} x ${boxNumber}`;
     for (let i = 0; i< boxNumber; i++)
     {
         let childBox = document.createElement('div');
@@ -33,12 +37,31 @@ function boxCreate() {
             grandchildBox.classList.add('grandchildBox');
             childBox.appendChild(grandchildBox);
             if(isRainbow)
+                {
+                    grandchildBox.addEventListener('mousemove', function() 
+                    {
+                        if(startDraw)
+                        {
+                            grandchildBox.style.backgroundColor = colors[Math.floor(Math.random() * 7)]
+                        }
+
+                    });
+                    
+                        
+                }
+
+            else
             {
-                grandchildBox.addEventListener('mousemove', () => grandchildBox.style.backgroundColor = colors[Math.floor(Math.random() * 7)]);
-            }
-            else{
-            grandchildBox.addEventListener('mousemove', () => grandchildBox.classList.add('clicked'))
-            }
+                grandchildBox.addEventListener('mousemove', function(){
+                    if(startDraw)
+                    {
+                        grandchildBox.classList.add('clicked');
+                    }
+                    
+                } )
+                }
+            
+            
         }
     }
 
